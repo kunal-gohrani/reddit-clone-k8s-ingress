@@ -3,22 +3,23 @@ kind: Ingress
 metadata:
   name: ingress-reddit-app
 spec:
+  ingressClassName: nginx
   rules:
-  - host: "domain.com"
+  - host: redditclone.com
     http:
       paths:
       - pathType: Prefix
-        path: "/test"
+        path: "/"
         backend:
           service:
             name: reddit-clone-service
             port:
               number: 3000
-  - host: "*.domain.com"
+  - host: "*.redditclone.com"
     http:
       paths:
       - pathType: Prefix
-        path: "/test"
+        path: "/"
         backend:
           service:
             name: reddit-clone-service
